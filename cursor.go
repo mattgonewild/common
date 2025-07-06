@@ -6,8 +6,8 @@ type Cursor[T Timestamped] interface {
 	Cursor() (T, bool)
 	Seek(point time.Time) bool
 
-	End()
+	Start()
 	Previous() bool
 	Next() bool
-	Begin()
+	End()
 }
