@@ -10,4 +10,6 @@ type Cursor[T Timestamped] interface {
 	Previous() bool
 	Next() bool
 	End()
+
+	Point() (time.Time, bool)
 }
