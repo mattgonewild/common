@@ -3,7 +3,7 @@ package common
 import "time"
 
 type Cursor[T Timestamped] interface {
-	Cursor() (T, bool)
+	Cursor() T
 	Seek(point time.Time) bool
 
 	Start()
@@ -11,5 +11,5 @@ type Cursor[T Timestamped] interface {
 	Next() bool
 	End()
 
-	Point() (time.Time, bool)
+	Point() time.Time
 }
