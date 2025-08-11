@@ -3,13 +3,13 @@ package common
 import "time"
 
 type Cursor[T Timestamped] interface {
-	Cursor() T
+	Cursor() (T, error)
 	Seek(point time.Time) bool
 
 	Start()
 	Previous() bool
-	Next() bool
+	Next() (bool, error)
 	End()
 
-	Point() time.Time
+	Point() (time.Time, error)
 }
