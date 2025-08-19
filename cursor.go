@@ -5,9 +5,9 @@ import "time"
 type Cursor[T Timestamped] interface {
 	Cursor() T
 	Seek(point time.Time) bool
-	Start()
+	Start() error
 	Previous() bool
 	Next() (bool, error)
-	End()
+	End() error
 	Point() time.Time
 }
