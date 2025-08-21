@@ -1,12 +1,10 @@
 package common
 
-import "time"
-
-type Log[T Timestamped] interface {
+type Log[T UnixTimestamped] interface {
 	Append(element T) error
 	Tail() (T, bool)
 
-	NewCursorBefore(end time.Time) (Cursor[T], error)
-	NewCursorAt(floor time.Time) (Cursor[T], error)
-	NewCursorAfter(start time.Time) (Cursor[T], error)
+	NewCursorBefore(endUnixTime int64) (Cursor[T], error)
+	NewCursorAt(floorUnixTime int64) (Cursor[T], error)
+	NewCursorAfter(startUnixTime int64) (Cursor[T], error)
 }

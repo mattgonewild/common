@@ -1,13 +1,11 @@
 package common
 
-import "time"
-
-type Cursor[T Timestamped] interface {
+type Cursor[T UnixTimestamped] interface {
 	Cursor() T
-	Seek(point time.Time) error
+	Seek(pointUnixTime int64) error
 	Start() error
 	Previous() bool
 	Next() (bool, error)
 	End() error
-	Point() time.Time
+	Point() int64
 }
