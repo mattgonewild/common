@@ -2,15 +2,15 @@ package common
 
 import "iter"
 
-type Map[V any] interface {
-	Set(key Key, value V) error
-	Get(key Key) (V, error)
+type Map[T any] interface {
+	Set(key Key, value T) error
+	Get(key Key) (T, error)
 	Delete(key Key) error
 }
 
-type SortedMap[K Comparable[K], V any] interface {
-	Set(key K, value V) error
-	Get(key K) (V, error)
-	Delete(key K) error
-	All() iter.Seq2[K, V]
+type SortedMap[T Comparable[T]] interface {
+	Set(T) error
+	Get(T) (T, error)
+	Delete(T) error
+	All() iter.Seq[T]
 }
